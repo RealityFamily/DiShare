@@ -55,8 +55,23 @@
     <StartupObject>DiShare.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.2\lib\net45\CommonServiceLocator.dll</HintPath>
+    </Reference>
     <Reference Include="ControlzEx, Version=4.0.0.0, Culture=neutral, PublicKeyToken=69f1c32f803d307e, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.4.4.0\lib\net45\ControlzEx.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras, Version=5.4.1.0, Culture=neutral, PublicKeyToken=669f0b5e8f868abf, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Grace, Version=7.2.0.0, Culture=neutral, PublicKeyToken=b7d24c6367970497, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grace.7.2.0\lib\net45\Grace.dll</HintPath>
     </Reference>
     <Reference Include="MahApps.Metro, Version=2.0.0.0, Culture=neutral, PublicKeyToken=51482d6f650b2b3f, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.2.4.3\lib\net452\MahApps.Metro.dll</HintPath>
@@ -154,20 +169,34 @@
     <Reference Include="MahApps.Metro.IconPacks.Zondicons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.IconPacks.4.8.0\lib\net45\MahApps.Metro.IconPacks.Zondicons.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.19\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Tiny.RestClient, Version=1.7.1.0, Culture=neutral, PublicKeyToken=c41b7e5d2ab7abf4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tiny.RestClient.1.7.1\lib\net45\Tiny.RestClient.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -196,6 +225,12 @@
     <Compile Include="Infrastructure\TryGetResult.cs" />
     <Compile Include="Infrastructure\TryGetResultG.cs" />
     <Compile Include="Infrastructure\TryResult.cs" />
+    <Compile Include="Logic\VendorFilter\IVendorFilter.cs" />
+    <Compile Include="Logic\VendorFilter\VendorFilter.cs" />
+    <Compile Include="Logic\Windows8And10Detector\IWindows8And10Detector.cs" />
+    <Compile Include="Logic\Windows8And10Detector\Windows8And10Detector.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -207,8 +242,80 @@
     <Compile Include="Infrastructure\CachedEnumDescription.cs" />
     <Compile Include="Infrastructure\ExecutionTracker.cs" />
     <Compile Include="Infrastructure\TryResultG.cs" />
+    <Compile Include="Logic\ApiValidationErrorParser\ApiValidationErrorParser.cs" />
+    <Compile Include="Logic\ApiValidationErrorParser\IApiValidationErrorParser.cs" />
+    <Compile Include="Logic\ApplicationInfo\ApplicationInfoProvider.cs" />
+    <Compile Include="Logic\ApplicationInfo\EntryAssemblyProvider.cs" />
+    <Compile Include="Logic\ApplicationInfo\IApplicationInfoProvider.cs" />
+    <Compile Include="Logic\ApplicationInfo\IEntryAssemblyProvider.cs" />
+    <Compile Include="Logic\CacheFolderProvider\CacheFolderProvider.cs" />
+    <Compile Include="Logic\Checkout\CheckoutService.cs" />
+    <Compile Include="Logic\Checkout\ICheckoutService.cs" />
+    <Compile Include="Logic\CommandLine\CommandLineParametersParser.cs" />
+    <Compile Include="Logic\CommandLine\CommandTokens.cs" />
+    <Compile Include="Logic\CommandLine\ICommandLineParametersParser.cs" />
+    <Compile Include="Logic\CryptHelper\CryptHelper.cs" />
+    <Compile Include="Logic\CryptHelper\ICryptHelper.cs" />
+    <Compile Include="Logic\DownloadQueue\DownloadQueueEventArgs.cs" />
+    <Compile Include="Logic\DownloadQueue\DownloadQueueStateEventArgs.cs" />
+    <Compile Include="Logic\DownloadQueue\DownloadTaskQueue.cs" />
+    <Compile Include="Logic\DownloadQueue\Enums\DownloadQueueState.cs" />
+    <Compile Include="Logic\DownloadQueue\IDownloadTaskQueue.cs" />
+    <Compile Include="Logic\ErrorHandler\Models\NotificationMode.cs" />
+    <Compile Include="Logic\ErrorHandler\Models\TrackingMode.cs" />
+    <Compile Include="Logic\ExceptionHandler\IExceptionHandler.cs" />
+    <Compile Include="Logic\ExceptionHandler\IGlobalExceptionHandler.cs" />
+    <Compile Include="Logic\Exception\ScriptGeneratorException.cs" />
+    <Compile Include="Logic\Exception\SubscriptionProviderException.cs" />
+    <Compile Include="Logic\Exception\UnauthorizedUserProviderException.cs" />
+    <Compile Include="Logic\Exception\UserNotFoundUserProviderException.cs" />
+    <Compile Include="Logic\Exception\UserProviderException.cs" />
+    <Compile Include="Logic\HashSumChecker\HashSumChecker.cs" />
+    <Compile Include="Logic\HashSumChecker\IHashSumChecker.cs" />
+    <Compile Include="Logic\LocalParametrs\ILocalParameters.cs" />
+    <Compile Include="Logic\LocalParametrs\LocalParameters.cs" />
+    <Compile Include="Logic\MaxStartupScript\IMaxstartupCopier.cs" />
     <Compile Include="Logic\Max2018Detector\IMaxBadVersionDetector.cs" />
     <Compile Include="Logic\Max2018Detector\MaxBadVersionDetector.cs" />
+    <Compile Include="Logic\MaxStartupScript\MaxStartupScriptCopier.cs" />
+    <Compile Include="Logic\MaxVersionChecker\IMaxVersionChecker.cs" />
+    <Compile Include="Logic\MaxVersionChecker\MaxVersionChecker.cs" />
+    <Compile Include="Logic\Network\Events\NetworkStateChangedEvent.cs" />
+    <Compile Include="Logic\Network\FileDownloader.cs" />
+    <Compile Include="Logic\Network\INetworkCheckService.cs" />
+    <Compile Include="Logic\Network\Models\FileDownloadState.cs" />
+    <Compile Include="Logic\Network\NetworkCheckService.cs" />
+    <Compile Include="Logic\Network\SimpleFileDownloader.cs" />
+    <Compile Include="Logic\OldBaseRemover\IOldBaseRemover.cs" />
+    <Compile Include="Logic\OldBaseRemover\OldBaseRemover.cs" />
+    <Compile Include="Logic\RegistrySettingsProvider\IRegistrySettingsProvider.cs" />
+    <Compile Include="Logic\RegistrySettingsProvider\RegistrySettingsProvider.cs" />
+    <Compile Include="Logic\ScriptGenerators\IScriptGenerator.cs" />
+    <Compile Include="Logic\ScriptGenerators\ScriptGenerator.cs" />
+    <Compile Include="Logic\ShellExecutor\IShellExecutor.cs" />
+    <Compile Include="Logic\ShellExecutor\ShellExecutor.cs" />
+    <Compile Include="Logic\Subscription\Events\DropsChangedEvent.cs" />
+    <Compile Include="Logic\Subscription\Events\SubscriptionChangedEvent.cs" />
+    <Compile Include="Logic\Subscription\ISubscriptionProvider.cs" />
+    <Compile Include="Logic\Subscription\SubscriptionProvider.cs" />
+    <Compile Include="Logic\TempFolderCleaner\ITempFolderCleaner.cs" />
+    <Compile Include="Logic\TempFolderCleaner\TempFolderCleaner.cs" />
+    <Compile Include="Logic\Updater\Builders\IUpdateInfoBuilder.cs" />
+    <Compile Include="Logic\Updater\Builders\IVersionInfoBuilder.cs" />
+    <Compile Include="Logic\Updater\Builders\UpdateInfoBuilder.cs" />
+    <Compile Include="Logic\Updater\Builders\VersionInfoBuilder.cs" />
+    <Compile Include="Logic\Updater\Checkers\IUpdateChecker.cs" />
+    <Compile Include="Logic\Updater\Checkers\IUpdateNeededChecker.cs" />
+    <Compile Include="Logic\Updater\Checkers\UpdateChecker.cs" />
+    <Compile Include="Logic\Updater\Checkers\UpdateNeededChecker.cs" />
+    <Compile Include="Logic\Updater\Models\UpdateInfo.cs" />
+    <Compile Include="Logic\Updater\Models\VersionInfo.cs" />
+    <Compile Include="Logic\Updater\Providers\CachedUpdateInfoProvider.cs" />
+    <Compile Include="Logic\Updater\Providers\IUpdateInfoProvider.cs" />
+    <Compile Include="Logic\Users\IUserProvider.cs" />
+    <Compile Include="Logic\Users\Models\UserInfo.cs" />
+    <Compile Include="Logic\Users\UserProvider.cs" />
+    <Compile Include="Logic\VendorFilter\Model\MarkVendor.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
