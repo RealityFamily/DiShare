@@ -177,6 +177,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Infrastructure\CachedEnumDescriptionG.cs" />
+    <Compile Include="Infrastructure\Exceptions\LibraryException.cs" />
+    <Compile Include="Infrastructure\Extensions\ExceptionExtensions.cs" />
+    <Compile Include="Infrastructure\Extensions\FileExtensions.cs" />
+    <Compile Include="Infrastructure\Extensions\StringExtensions.cs" />
+    <Compile Include="Infrastructure\IO\FileRemover.cs" />
+    <Compile Include="Infrastructure\IO\IFileRemover.cs" />
+    <Compile Include="Infrastructure\Network\INetworkChecker.cs" />
+    <Compile Include="Infrastructure\Network\ISimpleFileDownloader.cs" />
+    <Compile Include="Infrastructure\Network\NetworkChecker.cs" />
+    <Compile Include="Infrastructure\Network\WebClientWithCustomTimeout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\OperationSystem\IProcessRunner.cs" />
+    <Compile Include="Infrastructure\OperationSystem\ProcessRunner.cs" />
+    <Compile Include="Infrastructure\Threading\AsyncLock.cs" />
+    <Compile Include="Infrastructure\TryGetResult.cs" />
+    <Compile Include="Infrastructure\TryGetResultG.cs" />
+    <Compile Include="Infrastructure\TryResult.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -185,12 +204,18 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Infrastructure\CachedEnumDescription.cs" />
+    <Compile Include="Infrastructure\ExecutionTracker.cs" />
+    <Compile Include="Infrastructure\TryResultG.cs" />
+    <Compile Include="Logic\Max2018Detector\IMaxBadVersionDetector.cs" />
+    <Compile Include="Logic\Max2018Detector\MaxBadVersionDetector.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OS\IRegistryProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -222,5 +247,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

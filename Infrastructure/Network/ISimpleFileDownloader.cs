@@ -1,0 +1,25 @@
+﻿// Decompiled with JetBrains decompiler
+// Type: Library.Infrastructure.Network.ISimpleFileDownloader
+// Assembly: Library.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: C33DEAF4-0DED-4856-9D39-1C1FEE34CC77
+// Assembly location: W:\Program Files (x86)\3D Hamster\Library.Infrastructure.dll
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace Library.Infrastructure.Network
+{
+  public interface ISimpleFileDownloader
+  {
+    Task<TryResult> TryDownloadFileAsync(
+      string address,
+      string fileName,
+      bool replaceFile = true,
+      Action<ProgressChangedEventArgs> progressChangedCallback = null,
+      IReadOnlyDictionary<string, string> headers = null,
+      CancellationToken cancellationToken = default (CancellationToken));
+  }
+}

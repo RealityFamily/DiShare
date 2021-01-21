@@ -31,5 +31,6 @@
     </mah:MetroWindow.RightWindowCommands>
 
 <Grid>
-    </Grid>
+        <Button Width="100" Height="40" Style="{StaticResource MahApps.Styles.Button.Square.Accent}">Перетащить</Button>
+</Grid>
 </mah:MetroWindow>
