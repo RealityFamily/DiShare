@@ -18,7 +18,7 @@ namespace DiShare.Logic.RegistrySettingsProvider
   {
     private readonly IRegistryProvider registryProvider;
     private readonly AsyncLock asyncLock;
-    private static string RegistrySettingsSubKey = "3D Hamster";
+    private static string RegistrySettingsSubKey = "3D Hamster"; // :TODO Change for DiShare registry data
     private static readonly string RegistrySettingsKey = RegistryRootTokens.HKEY_CURRENT_USER + "\\Software\\" + Logic.RegistrySettingsProvider.RegistrySettingsProvider.RegistrySettingsSubKey;
     private bool? isTopmostEnabled;
     private readonly string IsTopmostEnabledValueName = "IsTopmostEnabled";
@@ -47,10 +47,10 @@ namespace DiShare.Logic.RegistrySettingsProvider
     private readonly bool IsLoggingDefaultValue;
     private bool? isAnalyticsEnabled;
     private readonly string IsAnalyticsEnabledValueName = "IsAnalyticsEnabled";
-    private readonly bool IsAnalyticsEnabledDefaultValue = true;
+    private readonly bool IsAnalyticsEnabledDefaultValue = false; // changed from true
     private bool? isUpdatesEnabled;
     private readonly string IsUpdatesEnabledValueName = "IsUpdatesEnabled";
-    private readonly bool IsUpdatesEnabledDefaultValue = true;
+    private readonly bool IsUpdatesEnabledDefaultValue = false; // changed from true
     private bool? isShowMaxBadVersionWarningDisabled;
     private readonly string isShowMaxBadVersionWarningDisabledValueName = "IsShowMaxBadVersionWarningDisabled";
     private readonly bool isShowMaxBadVersionWarningDisabledDefaultValue;
