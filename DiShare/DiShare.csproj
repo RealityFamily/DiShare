@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -8,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>DiShare</RootNamespace>
     <AssemblyName>DiShare</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -29,6 +30,8 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -55,8 +58,32 @@
     <StartupObject>DiShare.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.5.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.5\lib\net46\CommonServiceLocator.dll</HintPath>
+    </Reference>
     <Reference Include="ControlzEx, Version=4.0.0.0, Culture=neutral, PublicKeyToken=69f1c32f803d307e, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.4.4.0\lib\net45\ControlzEx.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.78\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras, Version=5.4.1.0, Culture=neutral, PublicKeyToken=669f0b5e8f868abf, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Grace, Version=7.2.0.0, Culture=neutral, PublicKeyToken=b7d24c6367970497, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grace.7.2.0\lib\net45\Grace.dll</HintPath>
     </Reference>
     <Reference Include="MahApps.Metro, Version=2.0.0.0, Culture=neutral, PublicKeyToken=51482d6f650b2b3f, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.2.4.3\lib\net452\MahApps.Metro.dll</HintPath>
@@ -154,20 +181,49 @@
     <Reference Include="MahApps.Metro.IconPacks.Zondicons, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0c0d510f9915137a, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.IconPacks.4.8.0\lib\net45\MahApps.Metro.IconPacks.Zondicons.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.19\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.31\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SevenZipExtractor, Version=1.0.15.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SevenZipExtractor.1.0.15\lib\net45\SevenZipExtractor.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\lib\net451\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.113.0\lib\net451\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.113.0\lib\net451\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Tiny.RestClient, Version=1.7.1.0, Culture=neutral, PublicKeyToken=c41b7e5d2ab7abf4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tiny.RestClient.1.7.1\lib\net45\Tiny.RestClient.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -177,6 +233,179 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Analytics\ExceptionTracker.cs" />
+    <Compile Include="Analytics\IAnalyticsTracker.cs" />
+    <Compile Include="Analytics\IExceptionTracker.cs" />
+    <Compile Include="Analytics\Models\Event.cs" />
+    <Compile Include="Analytics\Models\ExceptionType.cs" />
+    <Compile Include="Analytics\Providers\IApplicationNameProvider.cs" />
+    <Compile Include="Analytics\Providers\IApplicationVersionProvider.cs" />
+    <Compile Include="Analytics\Providers\IdentityProvider.cs" />
+    <Compile Include="Analytics\Providers\IIdentityProvider.cs" />
+    <Compile Include="Api\Abstract\ApiBase.cs" />
+    <Compile Include="Api\Base\ResponseG.cs" />
+    <Compile Include="Api\Base\ResponseStatus.cs" />
+    <Compile Include="Api\Categories\CategoriesApi.cs" />
+    <Compile Include="Api\Categories\ICategoriesApi.cs" />
+    <Compile Include="Api\Categories\Responses\CategoryResponse.cs" />
+    <Compile Include="Api\Common\ConfigurationTokens.cs" />
+    <Compile Include="Api\Events\EventsApi.cs" />
+    <Compile Include="Api\Events\EventTranslator.cs" />
+    <Compile Include="Api\Events\IEventsApi.cs" />
+    <Compile Include="Api\Events\Requests\EventRequest.cs" />
+    <Compile Include="Api\Events\Responses\EventResponse.cs" />
+    <Compile Include="Api\ILibraryApiClient.cs" />
+    <Compile Include="Api\Images\IImageApi.cs" />
+    <Compile Include="Api\Images\ImageApi.cs" />
+    <Compile Include="Api\ItemDownloaderApi\IItemDownloaderApi.cs" />
+    <Compile Include="Api\ItemDownloaderApi\ItemDownloaderApi.cs" />
+    <Compile Include="Api\Items\IItemsApi.cs" />
+    <Compile Include="Api\Items\ItemsApi.cs" />
+    <Compile Include="Api\Items\Responses\ItemResponse.cs" />
+    <Compile Include="Api\LibraryApiClient.cs" />
+    <Compile Include="Api\Models\IModelsApi.cs" />
+    <Compile Include="Api\Models\ModelsApi.cs" />
+    <Compile Include="Api\Models\Responses\ModelResponse.cs" />
+    <Compile Include="Api\Subscription\ISubscriptionsApi.cs" />
+    <Compile Include="Api\Subscription\Responses\SubscribeResponse.cs" />
+    <Compile Include="Api\Subscription\Responses\SubscriptionResponse.cs" />
+    <Compile Include="Api\Subscription\Responses\TariffResponse.cs" />
+    <Compile Include="Api\Subscription\SubscriptionsApi.cs" />
+    <Compile Include="Api\Update\IUpdateApi.cs" />
+    <Compile Include="Api\Update\Responses\UpdateResponse.cs" />
+    <Compile Include="Api\Update\UpdateApi.cs" />
+    <Compile Include="Api\Users\IUsersApi.cs" />
+    <Compile Include="Api\Users\Requests\ChangePasswordRequest.cs" />
+    <Compile Include="Api\Users\Requests\LoginRequest.cs" />
+    <Compile Include="Api\Users\Requests\RegisterRequest.cs" />
+    <Compile Include="Api\Users\Responses\UserResponse.cs" />
+    <Compile Include="Api\Users\UsersApi.cs" />
+    <Compile Include="Api\Vendors\IVendorsApi.cs" />
+    <Compile Include="Api\Vendors\Responses\VendorResponse.cs" />
+    <Compile Include="Api\Vendors\VendorsApi.cs" />
+    <Compile Include="Archives\IArchiveExtractor.cs" />
+    <Compile Include="Archives\SevenZipArchiveExtractor.cs" />
+    <Compile Include="Data\CacheFolderProvider\ICacheFolderProvider.cs" />
+    <Compile Include="Data\CategoriesProvider.cs" />
+    <Compile Include="Data\Database\DatabaseProvider.cs" />
+    <Compile Include="Data\Database\IDatabase.cs" />
+    <Compile Include="Data\Exceptions\CacheException.cs" />
+    <Compile Include="Data\Exceptions\ItemDetectorException.cs" />
+    <Compile Include="Data\Exceptions\ProviderException.cs" />
+    <Compile Include="Data\Exceptions\RepositoryException.cs" />
+    <Compile Include="Data\Extensions\CategoryExtension.cs" />
+    <Compile Include="Data\Extensions\ItemExtensions.cs" />
+    <Compile Include="Data\Extensions\SubscriptionExtensions.cs" />
+    <Compile Include="Data\Extensions\TariffExtensions.cs" />
+    <Compile Include="Data\Extensions\VendorExtensions.cs" />
+    <Compile Include="Data\ICategoriesProvider.cs" />
+    <Compile Include="Data\IItemDetector.cs" />
+    <Compile Include="Data\ImageValidator\IImageValidator.cs" />
+    <Compile Include="Data\ImageValidator\ImageValidator.cs" />
+    <Compile Include="Data\ItemDetector.cs" />
+    <Compile Include="Data\ItemTokens.cs" />
+    <Compile Include="Data\Providers\IItemsProvider.cs" />
+    <Compile Include="Data\Providers\ItemsProvider.cs" />
+    <Compile Include="Data\Providers\IVendorsProvider.cs" />
+    <Compile Include="Data\Providers\VendorsProvider.cs" />
+    <Compile Include="Data\Repository\CategoriesRepository.cs" />
+    <Compile Include="Data\Repository\ICategoriesRepository.cs" />
+    <Compile Include="Data\Repository\IItemsRepository.cs" />
+    <Compile Include="Data\Repository\ItemsRepository.cs" />
+    <Compile Include="Data\Repository\IVendorsRepository.cs" />
+    <Compile Include="Data\Repository\VendorsRepository.cs" />
+    <Compile Include="Domain\Annotations\AspChildControlTypeAttribute.cs" />
+    <Compile Include="Domain\Annotations\AspDataFieldAttribute.cs" />
+    <Compile Include="Domain\Annotations\AspDataFieldsAttribute.cs" />
+    <Compile Include="Domain\Annotations\AspMethodPropertyAttribute.cs" />
+    <Compile Include="Domain\Annotations\AspMvcActionAttribute.cs" />
+    <Compile Include="Domain\Annotations\AspMvcActionSelectorAttribute.cs" />
+    <Compile Include="Domain\Annotations\AspMvcAreaAttribute.cs" />
+    <Compile Include="Domain\Annotations\AspMvcAreaMasterLocationFormatAttribute.cs" />
+    <Compile Include="Domain\Annotations\AspMvcAreaPartialViewLocationFormatAttribute.cs" />
+    <Compile Include="Domain\Annotations\AspMvcAreaViewLocationFormatAttribute.cs" />
+    <Compile Include="Domain\Annotations\AspMvcControllerAttribute.cs" />
+    <Compile Include="Domain\Annotations\AspMvcDisplayTemplateAttribute.cs" />
+    <Compile Include="Domain\Annotations\AspMvcEditorTemplateAttribute.cs" />
+    <Compile Include="Domain\Annotations\AspMvcMasterAttribute.cs" />
+    <Compile Include="Domain\Annotations\AspMvcMasterLocationFormatAttribute.cs" />
+    <Compile Include="Domain\Annotations\AspMvcModelTypeAttribute.cs" />
+    <Compile Include="Domain\Annotations\AspMvcPartialViewAttribute.cs" />
+    <Compile Include="Domain\Annotations\AspMvcPartialViewLocationFormatAttribute.cs" />
+    <Compile Include="Domain\Annotations\AspMvcSuppressViewErrorAttribute.cs" />
+    <Compile Include="Domain\Annotations\AspMvcTemplateAttribute.cs" />
+    <Compile Include="Domain\Annotations\AspMvcViewAttribute.cs" />
+    <Compile Include="Domain\Annotations\AspMvcViewComponentAttribute.cs" />
+    <Compile Include="Domain\Annotations\AspMvcViewComponentViewAttribute.cs" />
+    <Compile Include="Domain\Annotations\AspMvcViewLocationFormatAttribute.cs" />
+    <Compile Include="Domain\Annotations\AspRequiredAttributeAttribute.cs" />
+    <Compile Include="Domain\Annotations\AspTypePropertyAttribute.cs" />
+    <Compile Include="Domain\Annotations\AssertionConditionAttribute.cs" />
+    <Compile Include="Domain\Annotations\AssertionConditionType.cs" />
+    <Compile Include="Domain\Annotations\AssertionMethodAttribute.cs" />
+    <Compile Include="Domain\Annotations\BaseTypeRequiredAttribute.cs" />
+    <Compile Include="Domain\Annotations\CanBeNullAttribute.cs" />
+    <Compile Include="Domain\Annotations\CannotApplyEqualityOperatorAttribute.cs" />
+    <Compile Include="Domain\Annotations\CollectionAccessAttribute.cs" />
+    <Compile Include="Domain\Annotations\CollectionAccessType.cs" />
+    <Compile Include="Domain\Annotations\ContractAnnotationAttribute.cs" />
+    <Compile Include="Domain\Annotations\HtmlAttributeValueAttribute.cs" />
+    <Compile Include="Domain\Annotations\HtmlElementAttributesAttribute.cs" />
+    <Compile Include="Domain\Annotations\ImplicitUseKindFlags.cs" />
+    <Compile Include="Domain\Annotations\ImplicitUseTargetFlags.cs" />
+    <Compile Include="Domain\Annotations\InstantHandleAttribute.cs" />
+    <Compile Include="Domain\Annotations\InvokerParameterNameAttribute.cs" />
+    <Compile Include="Domain\Annotations\ItemCanBeNullAttribute.cs" />
+    <Compile Include="Domain\Annotations\ItemNotNullAttribute.cs" />
+    <Compile Include="Domain\Annotations\LinqTunnelAttribute.cs" />
+    <Compile Include="Domain\Annotations\LocalizationRequiredAttribute.cs" />
+    <Compile Include="Domain\Annotations\MacroAttribute.cs" />
+    <Compile Include="Domain\Annotations\MeansImplicitUseAttribute.cs" />
+    <Compile Include="Domain\Annotations\MustUseReturnValueAttribute.cs" />
+    <Compile Include="Domain\Annotations\NoEnumerationAttribute.cs" />
+    <Compile Include="Domain\Annotations\NoReorderAttribute.cs" />
+    <Compile Include="Domain\Annotations\NotifyPropertyChangedInvocatorAttribute.cs" />
+    <Compile Include="Domain\Annotations\NotNullAttribute.cs" />
+    <Compile Include="Domain\Annotations\PathReferenceAttribute.cs" />
+    <Compile Include="Domain\Annotations\ProvidesContextAttribute.cs" />
+    <Compile Include="Domain\Annotations\PublicAPIAttribute.cs" />
+    <Compile Include="Domain\Annotations\PureAttribute.cs" />
+    <Compile Include="Domain\Annotations\RazorDirectiveAttribute.cs" />
+    <Compile Include="Domain\Annotations\RazorHelperCommonAttribute.cs" />
+    <Compile Include="Domain\Annotations\RazorImportNamespaceAttribute.cs" />
+    <Compile Include="Domain\Annotations\RazorInjectionAttribute.cs" />
+    <Compile Include="Domain\Annotations\RazorLayoutAttribute.cs" />
+    <Compile Include="Domain\Annotations\RazorPageBaseTypeAttribute.cs" />
+    <Compile Include="Domain\Annotations\RazorSectionAttribute.cs" />
+    <Compile Include="Domain\Annotations\RazorWriteLiteralMethodAttribute.cs" />
+    <Compile Include="Domain\Annotations\RazorWriteMethodAttribute.cs" />
+    <Compile Include="Domain\Annotations\RazorWriteMethodParameterAttribute.cs" />
+    <Compile Include="Domain\Annotations\RegexPatternAttribute.cs" />
+    <Compile Include="Domain\Annotations\SourceTemplateAttribute.cs" />
+    <Compile Include="Domain\Annotations\StringFormatMethodAttribute.cs" />
+    <Compile Include="Domain\Annotations\TerminatesProgramAttribute.cs" />
+    <Compile Include="Domain\Annotations\UsedImplicitlyAttribute.cs" />
+    <Compile Include="Domain\Annotations\ValueProviderAttribute.cs" />
+    <Compile Include="Domain\Annotations\XamlItemBindingOfItemsControlAttribute.cs" />
+    <Compile Include="Domain\Annotations\XamlItemsControlAttribute.cs" />
+    <Compile Include="Domain\DTO\CategoryDto.cs" />
+    <Compile Include="Domain\DTO\ItemDto.cs" />
+    <Compile Include="Domain\DTO\VendorDto.cs" />
+    <Compile Include="Domain\Entities\Category.cs" />
+    <Compile Include="Domain\Entities\Item.cs" />
+    <Compile Include="Domain\Entities\Vendor.cs" />
+    <Compile Include="Domain\Enums\ImageSize.cs" />
+    <Compile Include="Domain\Models\BaseItem.cs" />
+    <Compile Include="Domain\Models\CategoryItem.cs" />
+    <Compile Include="Domain\Models\DownloadProgress.cs" />
+    <Compile Include="Domain\Models\ItemState.cs" />
+    <Compile Include="Domain\Models\ItemType.cs" />
+    <Compile Include="Domain\Models\Manifest.cs" />
+    <Compile Include="Domain\Models\ModelItem.cs" />
+    <Compile Include="Domain\Models\ModelState.cs" />
+    <Compile Include="Domain\Models\SubscribeUrl.cs" />
+    <Compile Include="Domain\Models\Subscription.cs" />
+    <Compile Include="Domain\Models\Tariff.cs" />
     <Compile Include="Infrastructure\CachedEnumDescriptionG.cs" />
     <Compile Include="Infrastructure\Exceptions\LibraryException.cs" />
     <Compile Include="Infrastructure\Extensions\ExceptionExtensions.cs" />
@@ -196,6 +425,62 @@
     <Compile Include="Infrastructure\TryGetResult.cs" />
     <Compile Include="Infrastructure\TryGetResultG.cs" />
     <Compile Include="Infrastructure\TryResult.cs" />
+    <Compile Include="Logic\VendorFilter\IVendorFilter.cs" />
+    <Compile Include="Logic\VendorFilter\VendorFilter.cs" />
+    <Compile Include="Logic\Windows8And10Detector\IWindows8And10Detector.cs" />
+    <Compile Include="Logic\Windows8And10Detector\Windows8And10Detector.cs" />
+    <Compile Include="OS\RegistryProvider.cs" />
+    <Compile Include="OS\RegistryRootTokens.cs" />
+    <Compile Include="Services\Logic\Exceptions\CategoriesServiceException.cs" />
+    <Compile Include="Services\Logic\Exceptions\VendorsServiceException.cs" />
+    <Compile Include="Services\Services\Categories\CategoriesService.cs" />
+    <Compile Include="Services\Services\Categories\ICategoriesService.cs" />
+    <Compile Include="Services\Services\Extensions\CategoryExtension.cs" />
+    <Compile Include="Services\Services\Extensions\ItemExtension.cs" />
+    <Compile Include="Services\Services\Items\IItemsService.cs" />
+    <Compile Include="Services\Services\Items\ItemsService.cs" />
+    <Compile Include="Services\Services\Network\IFileDownloader.cs" />
+    <Compile Include="Services\Services\Vendors\IVendorsService.cs" />
+    <Compile Include="Services\Services\Vendors\VendorsService.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="Wpf\Base\IViewModel.cs" />
+    <Compile Include="Wpf\Base\ViewModel.cs" />
+    <Compile Include="Wpf\Base\ViewModelG.cs" />
+    <Compile Include="Wpf\Base\WindowMode.cs" />
+    <Compile Include="Wpf\Behaviors\BindableSelectedItemBehavior.cs" />
+    <Compile Include="Wpf\Behaviors\HyperlinkBehavior.cs" />
+    <Compile Include="Wpf\Behaviors\MarginSetter.cs" />
+    <Compile Include="Wpf\Converters\BoolInverseConverter.cs" />
+    <Compile Include="Wpf\Converters\BoolToSolidColorBrushConverter.cs" />
+    <Compile Include="Wpf\Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Wpf\Converters\BoolToVisibilityMultiConverter.cs" />
+    <Compile Include="Wpf\Converters\EnumToVisibilityConverter.cs" />
+    <Compile Include="Wpf\Converters\IntToSolidColorBrushConverter.cs" />
+    <Compile Include="Wpf\Converters\MarkupConverterBase.cs" />
+    <Compile Include="Wpf\Converters\MarkupMultiValueConverterBase.cs" />
+    <Compile Include="Wpf\Converters\NullToBoolConverter.cs" />
+    <Compile Include="Wpf\Converters\NullToVisibilityConverter.cs" />
+    <Compile Include="Wpf\Converters\ProgressMaxValueConverter.cs" />
+    <Compile Include="Wpf\Dialogs\ChooseFolderDialog.cs" />
+    <Compile Include="Wpf\Dialogs\IChooseFolderDialog.cs" />
+    <Compile Include="Wpf\Dialogs\IViewService.cs" />
+    <Compile Include="Wpf\Dialogs\RequestCloseMessage.cs" />
+    <Compile Include="Wpf\Dialogs\ViewService.cs" />
+    <Compile Include="Wpf\Helpers\DispatcherHelperAdapter.cs" />
+    <Compile Include="Wpf\Helpers\IDispatcherHelper.cs" />
+    <Compile Include="Wpf\Helpers\PasswordHelper.cs" />
+    <Compile Include="Wpf\Helpers\ThemeManagerHelper.cs" />
+    <Compile Include="Wpf\Infrastructure\IMainWindowProvider.cs" />
+    <Compile Include="Wpf\Navigation\INavigableViewModel.cs" />
+    <Compile Include="Wpf\Navigation\INavigationService.cs" />
+    <Compile Include="Wpf\Navigation\NavigablePage.cs" />
+    <Compile Include="Wpf\Navigation\NavigationService.cs" />
+    <Compile Include="Wpf\Utils\ISingleInstanceApp.cs" />
+    <Compile Include="Wpf\Utils\NativeMethods.cs" />
+    <Compile Include="Wpf\Utils\SingleInstanceG.cs" />
+    <Compile Include="Wpf\Utils\SingleInstanceHelperG.cs" />
+    <Compile Include="Wpf\Utils\WM.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -207,8 +492,80 @@
     <Compile Include="Infrastructure\CachedEnumDescription.cs" />
     <Compile Include="Infrastructure\ExecutionTracker.cs" />
     <Compile Include="Infrastructure\TryResultG.cs" />
+    <Compile Include="Logic\ApiValidationErrorParser\ApiValidationErrorParser.cs" />
+    <Compile Include="Logic\ApiValidationErrorParser\IApiValidationErrorParser.cs" />
+    <Compile Include="Logic\ApplicationInfo\ApplicationInfoProvider.cs" />
+    <Compile Include="Logic\ApplicationInfo\EntryAssemblyProvider.cs" />
+    <Compile Include="Logic\ApplicationInfo\IApplicationInfoProvider.cs" />
+    <Compile Include="Logic\ApplicationInfo\IEntryAssemblyProvider.cs" />
+    <Compile Include="Logic\CacheFolderProvider\CacheFolderProvider.cs" />
+    <Compile Include="Logic\Checkout\CheckoutService.cs" />
+    <Compile Include="Logic\Checkout\ICheckoutService.cs" />
+    <Compile Include="Logic\CommandLine\CommandLineParametersParser.cs" />
+    <Compile Include="Logic\CommandLine\CommandTokens.cs" />
+    <Compile Include="Logic\CommandLine\ICommandLineParametersParser.cs" />
+    <Compile Include="Logic\CryptHelper\CryptHelper.cs" />
+    <Compile Include="Logic\CryptHelper\ICryptHelper.cs" />
+    <Compile Include="Logic\DownloadQueue\DownloadQueueEventArgs.cs" />
+    <Compile Include="Logic\DownloadQueue\DownloadQueueStateEventArgs.cs" />
+    <Compile Include="Logic\DownloadQueue\DownloadTaskQueue.cs" />
+    <Compile Include="Logic\DownloadQueue\Enums\DownloadQueueState.cs" />
+    <Compile Include="Logic\DownloadQueue\IDownloadTaskQueue.cs" />
+    <Compile Include="Logic\ErrorHandler\Models\NotificationMode.cs" />
+    <Compile Include="Logic\ErrorHandler\Models\TrackingMode.cs" />
+    <Compile Include="Logic\ExceptionHandler\IExceptionHandler.cs" />
+    <Compile Include="Logic\ExceptionHandler\IGlobalExceptionHandler.cs" />
+    <Compile Include="Logic\Exception\ScriptGeneratorException.cs" />
+    <Compile Include="Logic\Exception\SubscriptionProviderException.cs" />
+    <Compile Include="Logic\Exception\UnauthorizedUserProviderException.cs" />
+    <Compile Include="Logic\Exception\UserNotFoundUserProviderException.cs" />
+    <Compile Include="Logic\Exception\UserProviderException.cs" />
+    <Compile Include="Logic\HashSumChecker\HashSumChecker.cs" />
+    <Compile Include="Logic\HashSumChecker\IHashSumChecker.cs" />
+    <Compile Include="Logic\LocalParametrs\ILocalParameters.cs" />
+    <Compile Include="Logic\LocalParametrs\LocalParameters.cs" />
+    <Compile Include="Logic\MaxStartupScript\IMaxStartupScriptCopier.cs" />
     <Compile Include="Logic\Max2018Detector\IMaxBadVersionDetector.cs" />
     <Compile Include="Logic\Max2018Detector\MaxBadVersionDetector.cs" />
+    <Compile Include="Logic\MaxStartupScript\MaxStartupScriptCopier.cs" />
+    <Compile Include="Logic\MaxVersionChecker\IMaxVersionChecker.cs" />
+    <Compile Include="Logic\MaxVersionChecker\MaxVersionChecker.cs" />
+    <Compile Include="Logic\Network\Events\NetworkStateChangedEvent.cs" />
+    <Compile Include="Logic\Network\FileDownloader.cs" />
+    <Compile Include="Logic\Network\INetworkCheckService.cs" />
+    <Compile Include="Logic\Network\Models\FileDownloadState.cs" />
+    <Compile Include="Logic\Network\NetworkCheckService.cs" />
+    <Compile Include="Logic\Network\SimpleFileDownloader.cs" />
+    <Compile Include="Logic\OldBaseRemover\IOldBaseRemover.cs" />
+    <Compile Include="Logic\OldBaseRemover\OldBaseRemover.cs" />
+    <Compile Include="Logic\RegistrySettingsProvider\IRegistrySettingsProvider.cs" />
+    <Compile Include="Logic\RegistrySettingsProvider\RegistrySettingsProvider.cs" />
+    <Compile Include="Logic\ScriptGenerators\IScriptGenerator.cs" />
+    <Compile Include="Logic\ScriptGenerators\ScriptGenerator.cs" />
+    <Compile Include="Logic\ShellExecutor\IShellExecutor.cs" />
+    <Compile Include="Logic\ShellExecutor\ShellExecutor.cs" />
+    <Compile Include="Logic\Subscriptions\Events\DropsChangedEvent.cs" />
+    <Compile Include="Logic\Subscriptions\Events\SubscriptionChangedEvent.cs" />
+    <Compile Include="Logic\Subscriptions\ISubscriptionProvider.cs" />
+    <Compile Include="Logic\Subscriptions\SubscriptionProvider.cs" />
+    <Compile Include="Logic\TempFolderCleaner\ITempFolderCleaner.cs" />
+    <Compile Include="Logic\TempFolderCleaner\TempFolderCleaner.cs" />
+    <Compile Include="Logic\Updater\Builders\IUpdateInfoBuilder.cs" />
+    <Compile Include="Logic\Updater\Builders\IVersionInfoBuilder.cs" />
+    <Compile Include="Logic\Updater\Builders\UpdateInfoBuilder.cs" />
+    <Compile Include="Logic\Updater\Builders\VersionInfoBuilder.cs" />
+    <Compile Include="Logic\Updater\Checkers\IUpdateChecker.cs" />
+    <Compile Include="Logic\Updater\Checkers\IUpdateNeededChecker.cs" />
+    <Compile Include="Logic\Updater\Checkers\UpdateChecker.cs" />
+    <Compile Include="Logic\Updater\Checkers\UpdateNeededChecker.cs" />
+    <Compile Include="Logic\Updater\Models\UpdateInfo.cs" />
+    <Compile Include="Logic\Updater\Models\VersionInfo.cs" />
+    <Compile Include="Logic\Updater\Providers\CachedUpdateInfoProvider.cs" />
+    <Compile Include="Logic\Updater\Providers\IUpdateInfoProvider.cs" />
+    <Compile Include="Logic\Users\IUserProvider.cs" />
+    <Compile Include="Logic\Users\Models\UserInfo.cs" />
+    <Compile Include="Logic\Users\UserProvider.cs" />
+    <Compile Include="Logic\VendorFilter\Model\MarkVendor.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -239,6 +596,21 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Scripts\3D Hamster-Launch3DHamster.mcr">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Scripts\3dhamster-loader.ms">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Scripts\3dhamster.ms">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\MaxMaterial.ms">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\Model.ms">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
@@ -247,6 +619,29 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Scripts\icons\3DHamster_16i.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Scripts\icons\3DHamster_24i.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\SevenZipExtractor.1.0.15\build\SevenZipExtractor.targets" Condition="Exists('..\packages\SevenZipExtractor.1.0.15\build\SevenZipExtractor.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\SevenZipExtractor.1.0.15\build\SevenZipExtractor.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SevenZipExtractor.1.0.15\build\SevenZipExtractor.targets'))" />
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net451\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net451\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net451\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net451\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>

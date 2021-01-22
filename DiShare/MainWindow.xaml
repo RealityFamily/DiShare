@@ -8,7 +8,10 @@
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen" Height="590" Width="1008" MinHeight="460" MinWidth="632"
-        GlowBrush="{DynamicResource MahApps.Brushes.Accent}">
+        GlowBrush="{DynamicResource MahApps.Brushes.Accent}" 
+        Title="{Binding Title}"
+        DataContext="{Binding Main, Source={StaticResource Locator}}"
+        >
 
     <mah:MetroWindow.RightWindowCommands>
         <mah:WindowCommands>
@@ -30,7 +33,9 @@
         </mah:WindowCommands>
     </mah:MetroWindow.RightWindowCommands>
 
-<Grid>
+    <Grid>
         <Button Width="100" Height="40" Style="{StaticResource MahApps.Styles.Button.Square.Accent}">Перетащить</Button>
-</Grid>
+        <TextBlock Height="40" Margin="296,111,281,408" Style="{StaticResource MahApps.Styles.TextBlock}" TextAlignment="Center" Text="{Binding Title}"></TextBlock>
+        <TextBlock Height="40" Margin="296,169,281,350" Style="{StaticResource MahApps.Styles.TextBlock}" TextAlignment="Center">To load model just drag-and-drop from bottom to 3dsMax</TextBlock>
+    </Grid>
 </mah:MetroWindow>
