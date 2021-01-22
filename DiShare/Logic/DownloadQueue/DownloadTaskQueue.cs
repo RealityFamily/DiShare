@@ -1,6 +1,6 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: Logic.DownloadQueue.DownloadTaskQueue
-// Assembly: Library.Logic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// Assembly: DiShare.Logic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 // MVID: DE47CAB1-D2AE-4243-A344-116EBB0A3A61
 // Assembly location: W:\Program Files (x86)\3D Hamster\Logic.dll
 
@@ -205,7 +205,7 @@ label_9:
           item.State = ItemState.DownloadingError;
           return;
         }
-        TryResult<UserInfo> tryResult1 = await downloadTaskQueue._userProvider.GetUserInfoAsync(out TODO).ConfigureAwait(false);
+        TryResult<UserInfo> tryResult1 = await downloadTaskQueue._userProvider.GetUserInfoAsync().ConfigureAwait(false);
         string token1 = tryResult1.IsFaulted ? string.Empty : tryResult1.Value.Token;
         string path = Path.Combine(result.Value, "Cache", item.Id, "item.7z");
         TryResult res = await downloadTaskQueue._itemDownloaderApi.TryDownloadItemAsync(item.Id, path, token1, (Action<ProgressChangedEventArgs>) (progress => item.Progress = progress.ProgressPercentage), item.TokenSource.Token);

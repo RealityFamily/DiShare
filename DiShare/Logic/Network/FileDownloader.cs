@@ -1,6 +1,6 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: Logic.Network.FileDownloader
-// Assembly: Library.Logic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// Assembly: DiShare.Logic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 // MVID: DE47CAB1-D2AE-4243-A344-116EBB0A3A61
 // Assembly location: W:\Program Files (x86)\3D Hamster\Logic.dll
 
@@ -114,7 +114,7 @@ label_19:
 label_24:
         num = 1;
       }
-      catch (object ex)
+      catch (Exception ex)
       {
         obj = ex;
       }
@@ -125,7 +125,7 @@ label_24:
       if (obj1 != null)
       {
         if (!(obj1 is Exception source))
-          throw obj1;
+          throw (Exception)obj1;
         ExceptionDispatchInfo.Capture(source).Throw();
       }
       if (num == 1)

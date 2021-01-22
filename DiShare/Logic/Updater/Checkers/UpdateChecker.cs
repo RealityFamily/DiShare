@@ -1,6 +1,6 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: Logic.Updater.Checkers.UpdateChecker
-// Assembly: Library.Logic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// Assembly: DiShare.Logic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 // MVID: DE47CAB1-D2AE-4243-A344-116EBB0A3A61
 // Assembly location: W:\Program Files (x86)\3D Hamster\Logic.dll
 
@@ -42,19 +42,18 @@ namespace DiShare.Logic.Updater.Checkers
 
     public async Task<TryResult<UpdateInfo>> GetUpdateInfoAsync()
     {
-      int num;
-      if (num != 0 && !this.networkChecker.CheckIsConnected())
-        return (TryResult<UpdateInfo>) (UpdateInfo) null;
-      try
-      {
-        UpdateResponse update = await this.updateApiClient.GetUpdateInfoAsync().ConfigureAwait(false);
-        return update != null ? (TryResult<UpdateInfo>) this.updateInfoBuilder.Build(update, this.baseApiUrl) : (TryResult<UpdateInfo>) (UpdateInfo) null;
-      }
-      catch (Exception ex)
-      {
-        this.exceptionHandler.HandleException(ex, notificationMode: NotificationMode.Suppress);
-        return (TryResult<UpdateInfo>) (UpdateInfo) null;
-      }
+        if (!this.networkChecker.CheckIsConnected())
+            return (TryResult<UpdateInfo>) (UpdateInfo) null;
+        try
+        {
+            UpdateResponse update = await this.updateApiClient.GetUpdateInfoAsync().ConfigureAwait(false);
+            return update != null ? (TryResult<UpdateInfo>) this.updateInfoBuilder.Build(update, this.baseApiUrl) : (TryResult<UpdateInfo>) (UpdateInfo) null;
+        }
+        catch (Exception ex)
+        {
+            this.exceptionHandler.HandleException(ex, notificationMode: NotificationMode.Suppress);
+            return (TryResult<UpdateInfo>) (UpdateInfo) null;
+        }
     }
   }
 }

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DiShare.Analytics.Providers;
+using DiShare.Common;
+using DiShare.Logic.Updater.Models;
 
 namespace DiShare.Logic.ApplicationInfo
 {

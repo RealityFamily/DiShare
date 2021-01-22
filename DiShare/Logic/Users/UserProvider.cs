@@ -1,6 +1,6 @@
 ﻿// Decompiled with JetBrains decompiler
 // Type: Logic.Users.UserProvider
-// Assembly: Library.Logic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// Assembly: DiShare.Logic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 // MVID: DE47CAB1-D2AE-4243-A344-116EBB0A3A61
 // Assembly location: W:\Program Files (x86)\3D Hamster\Logic.dll
 
@@ -178,7 +178,7 @@ namespace DiShare.Logic.Users
     public Task<TryResult<UserInfo>> UpdateUserInfoAsync()
     {
       this._userInfo = (UserInfo) null;
-      return this.GetUserInfoAsync(out TODO);
+      return this.GetUserInfoAsync();
     }
 
     public async Task<TryResult<string>> SendResetPasswordRequestAsync(string email)
@@ -251,8 +251,8 @@ namespace DiShare.Logic.Users
     {
       using (await this._asyncLock.LockAsync())
       {
-        int num1;
-        int num2 = num1 - 1;
+        //int num1 = 0 ;
+        //int num2 = num1 - 1;
         try
         {
           Response<UserResponse> result = await this._usersApi.RegisterAsync(email, name, password).ConfigureAwait(false);
@@ -392,7 +392,7 @@ namespace DiShare.Logic.Users
 
     public async Task<TryResult<bool>> HasUserRegisteredAsync()
     {
-      TryResult<UserInfo> tryResult = await this.GetUserInfoAsync(out TODO).ConfigureAwait(false);
+      TryResult<UserInfo> tryResult = await this.GetUserInfoAsync().ConfigureAwait(false);
       return !tryResult.IsFaulted ? new TryResult<bool>(((bool?) this._userInfo?.IsRegistered).GetValueOrDefault()) : new TryResult<bool>(tryResult.Exception);
     }
 
