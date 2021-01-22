@@ -9,9 +9,9 @@
         </ResourceDictionary>
         <!-- Theme setting -->
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/dark.blue.xaml">
-          <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:DiShare.ViewModel" />
         </ResourceDictionary>
       </ResourceDictionary.MergedDictionaries>
-    </ResourceDictionary>
+        <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:DiShare.ViewModel"/>
+        </ResourceDictionary>
   </Application.Resources>
 </Application>
