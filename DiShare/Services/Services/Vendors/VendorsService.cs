@@ -1,8 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: DiShare.Services.Vendors.VendorsService
-// Assembly: DiShare.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: CA4DCED3-3E6C-408B-8B3E-AE7715592923
-// Assembly location: W:\Program Files (x86)\3D Hamster\DiShare.Services.dll
+﻿
 
 using DiShare.Api.Base;
 using DiShare.Api.Vendors;

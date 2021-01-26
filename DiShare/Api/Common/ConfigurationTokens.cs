@@ -1,8 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: DiShare.Common.ConfigurationTokens
-// Assembly: DiShare.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 3BDF6958-3489-40AE-B70B-84F89A50168C
-// Assembly location: W:\Program Files (x86)\3D Hamster\DiShare.Common.dll
+﻿
 
 namespace DiShare.Common
 {
