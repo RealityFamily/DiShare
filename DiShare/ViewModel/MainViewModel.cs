@@ -42,14 +42,16 @@ namespace DiShare.ViewModel
             if (IsInDesignMode)
             {
                 // Code runs in Blend --> create design time data.
-                Title = "TEST";
+                
             }
             else
             {
                 // Code runs "for real"
-                Title = "UNDERTEST";
             }
 
+            Title = "VER 1.0 alpha";
+
+            // Detecting Bad Max Version
             MaxBadVersionDetector maxBadVersionDetector = new MaxBadVersionDetector(new RegistryProvider());
             if (maxBadVersionDetector.Detect().Value)
             {
