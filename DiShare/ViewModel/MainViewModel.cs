@@ -1,3 +1,7 @@
+using System.Collections.Specialized;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 using DiShare.Domain.Models;
 using DiShare.Infrastructure;
 using DiShare.Logic.Max2018Detector;
@@ -23,7 +27,12 @@ namespace DiShare.ViewModel
     {
 
         public string Title { get; set; }
-        private IScriptGenerator scriptGenerator { get; set; }
+        public string maxVersionStatus { get; set; }
+        /*private IScriptGenerator scriptGenerator { get; set; }
+        
+        private FrameworkElement _draggedElement;
+        private TryResult<string> _scriptPath;*/
+
 
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
@@ -44,25 +53,42 @@ namespace DiShare.ViewModel
             MaxBadVersionDetector maxBadVersionDetector = new MaxBadVersionDetector(new RegistryProvider());
             if (maxBadVersionDetector.Detect().Value)
             {
-                Title = "Version of 3ds Max is Bad";
+                maxVersionStatus = "Version of 3ds Max is Bad";
             }
             else
             {
-                Title = "Version of  3ds Max is Good, and under 2018 (3dsMax 2019-2021)";
+                maxVersionStatus = "Version of  3ds Max is Good, and under 2018 (3dsMax 2019-2021)";
             }
 
 
-            //ModelScript
+            /*//ModelScript
             scriptGenerator = new ScriptGenerator(); 
             ModelItem modelToLoad = new ModelItem();
             modelToLoad.Category = "Model.ms";
-            modelToLoad.Path = "D:\\Desktop\\TestModel";
+            modelToLoad.Path = "W:\\Projects\\workup\\DiShare\\DiShare\\bin\\Debug\\TestDB\\ModelTest1";
 
 
-            TryResult<string> scriptPath = scriptGenerator.Generate(modelToLoad);
+            _scriptPath = scriptGenerator.Generate(modelToLoad);*/
+
+            
 
 
 
         }
+
+    /*    private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Image img = (Image) sender;
+
+            string sourceFile = _scriptPath.Value;
+            DataObject dataObject = new DataObject();
+            dataObject.SetFileDropList(new StringCollection()
+            {
+                sourceFile
+            });
+
+            int num = (int)DragDrop.DoDragDrop((DependencyObject)this._draggedElement, (object)dataObject, DragDropEffects.Copy);
+
+        }*/
     }
 }
