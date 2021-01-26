@@ -47,7 +47,7 @@ namespace DiShare.Logic.ScriptGenerators
           contents = contents.Replace("{ModelPath}", Path.Combine(item.Path, "Model") + "\\");
         else if (item.Type == ItemType.Material)
           contents = contents.Replace("{ModelPath}", Path.Combine(item.Path, "MaxMaterial") + "\\");
-        string path2 = Path.Combine(this.tempDirectory, "LibraryScript_" + Guid.NewGuid().ToString() + ".ms");
+        string path2 = Path.Combine(/*this.tempDirectory*/item.Path, "DiScript_" + Guid.NewGuid().ToString() + ".ms");
         File.WriteAllText(path2, contents);
         return new TryResult<string>(path2);
       }

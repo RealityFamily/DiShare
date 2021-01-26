@@ -1,5 +1,7 @@
-using System.Web.UI.WebControls;
+using DiShare.Domain.Models;
+using DiShare.Infrastructure;
 using DiShare.Logic.Max2018Detector;
+using DiShare.Logic.ScriptGenerators;
 using DiShare.OS.Registry;
 using GalaSoft.MvvmLight;
 
@@ -21,6 +23,7 @@ namespace DiShare.ViewModel
     {
 
         public string Title { get; set; }
+        private IScriptGenerator scriptGenerator { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
@@ -47,6 +50,17 @@ namespace DiShare.ViewModel
             {
                 Title = "Version of  3ds Max is Good, and under 2018 (3dsMax 2019-2021)";
             }
+
+
+            //ModelScript
+            scriptGenerator = new ScriptGenerator(); 
+            ModelItem modelToLoad = new ModelItem();
+            modelToLoad.Category = "Model.ms";
+            modelToLoad.Path = "D:\\Desktop\\TestModel";
+
+
+            TryResult<string> scriptPath = scriptGenerator.Generate(modelToLoad);
+
 
 
         }
